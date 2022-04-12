@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Estrutura geral da tabela-->
+    <style>
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            display: inline-block;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin-bottom: 5px;
+        }
+
+        button {
+            margin-bottom: 5px
+        }
+
+        .tabela {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .tabela td,
+        .tabela th {
+            border: 1px solid rgb(0, 0, 0);
+            padding: 15px;
+        }
+
+        .tabela tr:nth-child(even) {
+            background-color: #fefefe;
+        }
+
+        .tabela tr:hover {
+            background-color: #469D89
+        }
+
+        .tabela th {
+            background-color: #67B99A;
+            color: #fefefe;
+            text-align: left;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+    </style>
+    <!-- Style NavBar -->
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #081c15;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: #fefefe;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #036666;
+        }
+
+        li {
+            border-right: 1px #bbb;
+        }
+
+        li:last-child {
+            border-right: none;
+        }
+    </style>
+    <!-- Estrutura Modal -->
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        .modal-content {
+            background-color: #3b584cd3;
+            margin: 15% auto;
+            padding: 20px;
+            border: 3px solid #248277;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    <!-- Style adicionais -->
+    <style>
+        .cornome {
+            color: #fefefe;
+            font-size: 22px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        .buttonsalvar {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: rgb(201, 201, 201);
+            border: none;
+            color: #020202;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+
+        .buttonsalvar:hover {
+            background-color: #036666;
+            color: #fefefe;
+        }
+    </style>
+
+
+
+    <!-- BOTAO REMOVER-->
+    <style>
+        .buttonremover {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: #7fbbbb;
+            border: none;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            font-size: 20px;
+            padding: 17px;
+            width: 180px;
+            transition: all 0.4s;
+            cursor: pointer;
+            margin: 5px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        .buttonremover:hover span {
+            padding-right: 1px;
+        }
+
+        .buttonremover:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+    </style>
+
+    <!-- BOTAO ADICIONAR -->
+
+
+    <style>
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: rgb(107, 107, 107);
+            border: 1px;
+            color: #fefefe;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        .button:hover {
+            background-color: #036666;
+            color: #fefefe;
+        }
+    </style>
+
+
+
+
+    <!-- Codigo -->
+</head>
+
+<body>
+    <ul>
+        <li><a href="#contatos" class="active"> Meus Contatos</a></li>
+        <li><a href="#filmes">Filmes</a></li>
+        <li><a href="#eventos">Eventos</a></li>
+    </ul>
+
+    <!-- Meus Contatos -->
+    <h1 style="font-size:40px"   class="contatos" text-align="center"><b> Meus Contatos </b></h1>
+
+    <style>
+        .contatos {
+            width: 1530px;
+            border-radius: 7px;
+            background-color: #333;
+            color: #fefefe;
+            text-align: left;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            padding: 20px;
+            margin: 6px;
+        }
+    </style>
+
+    <button id="botaoabrir" class="button"> ADICIONAR </button>
+    <div id="modalbloco" class="modal">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 class="cornome" style="font-size: 35px;">Meu Contato</h1>
+            <label class="cornome"> Nome </label>
+            <input id="nome" type="text">
+            <b>
+             <label class="cornome"> Email </label>
+             <input id="email" type="text">
+            <b>
+            <button onclick="incluirTable()" class="buttonsalvar">SALVAR</button>
+        </div>
+    </div>
+
+    <table class="tabela">
+        <thead>
+            <th>
+                ID
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                E-mail
+            </th>
+            <th>
+                Ações
+            </th>
+        </thead>
+
+
+        <tbody id="dados">
+        </tbody>
+
+    </table>
+
+    <script>
+        var modalbloco = document.getElementById("modalbloco");
+        var botaoabrir = document.getElementById("botaoabrir");
+        var span = document.getElementsByClassName("close")[0];
+
+        var cont = 1;
+        botaoabrir.onclick = function () {
+            modalbloco.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modalbloco.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modalbloco) {
+                modalbloco.style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        function remover(id) {
+            document.getElementById(id).remove();
+        }
+        function incluirTable() {
+            var nome = document.getElementById("nome").value;
+            var email = document.getElementById("email").value;
+
+            if (nome == "") {
+                alert("Campo do nome em branco!");
+                return false;
+            }
+            if (email == "") {
+                alert("Campo do email em branco!");
+                return false;
+            }
+
+            var id = cont++
+            document.getElementById("dados").innerHTML +=
+                `<tr id=${id}>  
+                    <td>	
+                        ${id} 
+                    </td> 
+                    <td> 
+                        ${nome}
+                    </td>
+                    <td>
+                        ${email}
+                    </td>
+                    <td>
+                        <button class=buttonremover onclick=remover(${id})>Remover</button>
+                    </td>
+                </tr>`
+        }
+    </script>
+</body>
+</html>
